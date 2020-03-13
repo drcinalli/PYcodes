@@ -7,6 +7,8 @@ Created on Tue Mar 10 09:42:24 2020
 """
 
 import array
+import random
+
 
 
 #number of people in the room
@@ -23,3 +25,9 @@ for i in range(num_pessoas):
        pessoas.append(i+1)
        
 print (pessoas)
+
+
+winner = random.randint(1,num_pessoas)
+
+print('The WINNER is: ' + str(winner))
+
