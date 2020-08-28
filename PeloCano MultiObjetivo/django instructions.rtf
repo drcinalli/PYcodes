@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf140
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fnil\fcharset0 Calibri;
+\f3\fmodern\fcharset0 Courier;\f4\fmodern\fcharset0 CourierNewPSMT;\f5\fmodern\fcharset0 Courier-Bold;
+\f6\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;}
+\paperw11900\paperh16840\margl1440\margr1440\margb1417\margt1417\vieww12200\viewh15200\viewkind1\viewscale118
+\deftab720
+\pard\pardeftab720\ri0\sl259\slmult1\sb240\sa60
+
+\f0\b\fs32 \cf0 Admin
+\f1 \
+\pard\pardeftab720\ri0\sl259\slmult1\sa160
+
+\f2\b0\fs22 \cf0 Login: admin\
+Senha: ic20142
+\f1 \
+\pard\pardeftab720\ri0
+
+\f3\fs24 \cf0 $ python manage.py createsuperuser\
+\
+\pard\pardeftab720\ri0\sl259\slmult1\sb240\sa60
+
+\f1\b\fs32 \cf0 MANAGE Sheel\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160
+
+\f3\b0\fs24 \cf0 python manage.py shell\
+\
+\pard\pardeftab720\ri0\sl259\slmult1\sb240\sa60
+
+\f0\b\fs32 \cf0 BANCO\
+\pard\pardeftab720\ri0
+
+\f3\b0\fs24 \cf0 python manage.py migrate #cria os databases\
+\
+*alterar models.py\
+python manage.py makemigrations polls #
+\f0 changes no banco\
+\
+
+\f3 python manage.py migrate #cria os databases\
+\
+\
+\pard\pardeftab720\ri0\sl259\slmult1\sb240\sa60
+
+\f0\b\fs32 \cf0 App Server\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri0\sl252\sb240\sa240
+
+\f4\b0\fs27 \cf0 python manage.py runserver\
+\pard\pardeftab720\ri0
+
+\f3\fs24 \cf0 \
+\
+
+\f5\b\fs36 Kill
+\f3\b0\fs24 \
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ps aux | grep -i manage\
+\pard\pardeftab720\ri0
+\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 kill -9 pid(seg. coluna)\
+\
+\
+\
+\
+\pard\pardeftab720\ri0
+{\field{\*\fldinst{HYPERLINK "http://localhost:8000/polls/"}}{\fldrslt 
+\f6 \cf3 \ul \ulc3 http://localhost:8000/polls/}}
+\f6  
+\f3 \
+\
+\
+\
+\pard\pardeftab720\ri0
+
+\f6\i \cf0 EMBRACE\
+\
+===== LICENSE BEGIN =====\
+64054-12042010\
+00001pylJ7gd1K94GLv3XtECq1PhEl\
+9qM2hZOIHupXa!i9coG8!6z1b9fUU2\
+eMLCMuIxcQw9I3!3l8AC7OSRvpzchv\
+===== LICENSE END =====
+\f3\i0 \
+\
+\
+\
+}
