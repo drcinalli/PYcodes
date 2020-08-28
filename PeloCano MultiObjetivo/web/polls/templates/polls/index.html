@@ -1,0 +1,15 @@
+
+{% if latest_exp_list %}
+    <ul>
+    {% for exp in latest_exp_list %}
+
+        <li><a href="{% url 'polls:detail' exp.id %}">{{ exp.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+

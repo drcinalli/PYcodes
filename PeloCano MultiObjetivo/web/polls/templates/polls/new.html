@@ -1,0 +1,308 @@
+{% load staticfiles %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />-->
+<title>PeloCano - Resource Distribution Problem</title>
+
+<!-- Bootstrap Core CSS -->
+<link  type="text/css" href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link  type="text/css" href="{% static 'css/full-width-pics.css' %}"  rel="stylesheet">
+<link  type="text/css" href="{% static 'css/freelancer.css' %}"  rel="stylesheet">
+<link  type="text/css" href="{% static 'font-awesome-4.1.0/css/font-awesome.min.css' %}"  rel="stylesheet">
+
+
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                <!--</button>-->
+                <a class="navbar-brand"> Resource Distribution Problem</a>
+            </div>
+
+            <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+            <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                <!--<ul class="nav navbar-nav navbar-right">-->
+                    <!--<li class="hidden">-->
+                        <!--<a href="#page-top"></a>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;<li class="page-scroll">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#portfolio">Portfolio</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="page-scroll">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#about">About</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="page-scroll">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#contact">Contact</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <br><br>
+                    <h2>PeloCano</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+
+                    <form action="{% url 'polls:new' %}" method="post">
+                        {% csrf_token %}
+
+
+                        Would you like to start a new <b>COIN MOEA</b> experiment?
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <br><b>name</b></br>
+                                    <input type="text" id="name" name="name" value="Experimento X " size="40">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b>date</b></br>
+                                    <input id="date" name="date">
+                                    <script type="text/javascript">
+                                          var now = new Date();
+                                          var then = now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate();
+                                              then += ' '+now.getHours()+':'+now.getMinutes();
+                                          document.getElementById('date').value = then;
+                                    </script>
+
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b>type</b></br>
+                                    <select  name="type" id="type">
+                                      <option value="A" selected>Experiment A</option>
+                                      <option value="B">Experiment A</option>
+                                      <option value="C">Experiment A</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                           <tr>
+                                <td colspan="5">
+                                    <br><b>description</b></br>
+                                    <textarea id="description" name="description" cols="100" rows="3" >... some description ...</textarea>
+                                </td>
+
+                            </tr>
+                           <tr>
+                                <td>
+                                    <br><b>status</b></br>
+                                    <!--<input type="text" id="flag" name="flag" value="W" readonly>-->
+                                    <select  name="status" id="status">
+                                      <option value="W" selected>Waiting</option>
+                                      <option value="R">Ready</option>
+                                      <option value="F">Finished</option>
+                                    </select>
+                                </td>
+                                     <td>&nbsp &nbsp &nbsp</td>
+                               <td>
+                                 <br><b>world</b></br>
+                                   <select  name="wrld" id="wrld">
+                                 {% for w in world %}
+                                      <option value="{{ w.id }}">{{ w.name }}</option>
+                                 {% endfor %}
+                               </td>
+                            </tr>
+                            <tr><td>&nbsp</td></tr>
+                            <tr><td>&nbsp</td></tr>
+                           <tr>
+                                <td>
+                                    <br><b>number population</b></br>
+                                    <input type="text" id="pop" name="pop" value="200">
+
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b>robots</b></br>
+                                    <input type="text" id="robots" name="robots" value="30" >
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b>number of levels</b></br>
+                                    <input type="text" name="numlevel" id="numlevel" value="5">
+
+
+                                </td>
+                            </tr>
+
+
+                           <tr>
+                                <td>
+                                    <br><b>generations</b></br>
+                                    <input type="text" name="generations" id="generations" value="100">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b> block size</b></br>
+                                    <input type="text" name="block" id="block" value="15">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b>generation threshold</b></br>
+                                    <input type="text" id="gen_threshold" name="gen_threshold" value="100">
+
+
+                                </td>
+                            </tr>
+
+
+                           <tr>
+                                <td>
+                                    <br><b> actual generation</b></br>
+                                    <input type="text" id="actual_gen" name="actual_gen" value="0" readonly>
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b> min players</b></br>
+                                    <input type="text" id="player" name="player" value="7">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b> first loop</b></br>
+                                    <input type="text" id="floop" name="floop" value="5">
+
+                                </td>
+                            </tr>
+
+                           <tr>
+                                <td>
+                                    <br><b>crossover rate</b></br>
+                                    <input type="text" id="cross" name="cross" value="0.3">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+                                    <br><b> mutation rate</b></br>
+                                    <input type="text" id="mutation" name="mutation" value="0.1">
+                                </td>
+                                <td>&nbsp &nbsp &nbsp</td>
+                                <td>
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-xs-12" >
+                                <button type="submit" class="btn btn-success" value="run" name="gorun" >start evolution</button>
+                            </div>
+                        </div>
+
+                        {% if latest_exp == -2 %}
+                            <br>
+                            <b>Get Last Experiment Info</b>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <button type="submit" class="btn" value="status" name="gorun">get status</button>
+                                    <button type="submit" class="btn" value="scenario" name="gorun">get area</button>
+                                    <button type="submit" class="btn" value="pfront" name="gorun">get pfront</button>
+                                    <button type="submit" class="btn" value="population" name="gorun">get population</button>
+                                    <button type="submit" class="btn" value="fitfront" name="gorun">get fitness front</button>
+                                <br>
+                                <br>
+                                <br>
+                                        <button type="submit" class="btn" value="set" name="gorun">gaussian mixture</button>
+                                    <button type="submit" class="btn" value="evol" name="gorun">see evolution</button>
+
+                                </div>
+                            </div>
+                        {% endif %}
+                    </form>
+
+
+
+                    <!--<form name="sentMessage" id="contactForm" novalidate>-->
+                        <!--<div class="row control-group">-->
+                            <!--<div class="form-group col-xs-12 floating-label-form-group controls">-->
+                                <!--<label>Name</label>-->
+                                <!--<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
+                                <!--<p class="help-block text-danger"></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row control-group">-->
+                            <!--<div class="form-group col-xs-12 floating-label-form-group controls">-->
+                                <!--<label>Email Address</label>-->
+                                <!--<input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">-->
+                                <!--<p class="help-block text-danger"></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row control-group">-->
+                            <!--<div class="form-group col-xs-12 floating-label-form-group controls">-->
+                                <!--<label>Phone Number</label>-->
+                                <!--<input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">-->
+                                <!--<p class="help-block text-danger"></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row control-group">-->
+                            <!--<div class="form-group col-xs-12 floating-label-form-group controls">-->
+                                <!--<label>Message</label>-->
+                                <!--<textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>-->
+                                <!--<p class="help-block text-danger"></p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<br>-->
+                        <!--<div id="success"></div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="form-group col-xs-12">-->
+                                <!--<button type="submit" class="btn btn-success btn-lg">Send</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="text-center">
+
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Rio de Janeiro - UFF/IC 2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
