@@ -4,7 +4,7 @@ South==1.0.1
 awsebcli==3.0.9
 cement==2.4.0
 dj-database-url==0.3.0
-djangorestframework==2.4.3
+djangorestframework==3.9.1
 gunicorn==19.1.1
 jmespath==0.5.0
 matplotlib==1.1.1
