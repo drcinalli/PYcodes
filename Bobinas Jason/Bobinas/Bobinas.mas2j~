@@ -1,0 +1,34 @@
+/* Jason Project */
+
+MAS bobinas {
+
+    infrastructure: Centralised
+
+    agents:
+        jumboA;
+
+        jumboB;
+
+        jumboC;
+
+        coordenador;
+
+        preactor;
+
+
+        patio_1;
+
+        patio_2;
+
+        patio_3;
+
+        juiz;
+
+        porto;
+
+        fabrica_1;
+
+        fabrica_2;
+
+}
+

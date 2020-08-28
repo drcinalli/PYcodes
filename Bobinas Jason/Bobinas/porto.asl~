@@ -1,0 +1,37 @@
+// Agent porto in project Bobinas.mas2j
+
+/* Initial beliefs and rules */
+pos(a,19).
+qtde_bobina(100).
+
+/* Initial goals */
+
+!start.
+
+/* Plans */
+
+
++!start : true <- 
+				?qtde_bobina(A);
+				.concat("Total de Bobinas:",A,X);
+				.print(X).
+
+
+//Incrementa Num. Bobinas
++!incrementa: true <- 
+						?qtde_bobina(Y);
+						-+qtde_bobina(Y+1);
+						.concat("Quantidade de Bobinas - de: ",Y,A);
+						.concat(Y,"  para:",B);
+						.concat(B,Y+1,C);
+				        .print(C).
+
+//Decrementa Num. Bobinas
++!decrementa: true <- 
+						?qtde_bobina(Y);
+						-+qtde_bobina(Y-1);
+						.concat("Quantidade de Bobinas - de: ",Y,A);
+						.concat(Y,"  para:",B);
+						.concat(B,Y-1,C);
+				        .print(C).
+						

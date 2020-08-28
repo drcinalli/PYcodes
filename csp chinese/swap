@@ -1,0 +1,65 @@
+import copy
+
+class csp:
+  def __init__(self, vars, domains, neighbors, constraints):
+    ## these remain constant during search
+    self.VARIABLES = vars
+    self.DOMAINS = domains
+    self.NEIGHBORS = neighbors
+    self.CONSTRAINTS = constraints
+#-----------------------------------------------------------
+
+def BACKTRACKING_SEARCH(csp):
+    return RECURSIVE_BACKTRACKING({},csp)
+
+def RECURSIVE_BACKTRACKING(assignment,csp):
+    if COMPLETE(assignment,csp.VARIABLES):return assignment
+    var=SELECT_UNASSIGNED_VARIABLE( csp.VARIABLES,assignment,csp)
+    for value in ORDER_DOMAIN_VALUES(var,assignment,csp):
+        if CONSISTENT(var,value,assignment,csp.CONSTRAINTS,csp.NEIGHBORS):
+            assignment[var]=value
+            result=RECURSIVE_BACKTRACKING(assignment,csp)
+            if result!='failure':return result
+            del assignment[var]
+    return 'failure'
+
+def SELECT_UNASSIGNED_VARIABLE(vars,assignment,csp):
+    for var in vars:
+        if not (var in assignment):return var
+  
+def COMPLETE(assignment,vars):
+    for var in vars:
+        if not (var in assignment):return False
+    return True
+
+def ORDER_DOMAIN_VALUES(var,assignment,csp):
+    return csp.DOMAINS[var][:]
+
+def CONSISTENT(var,value,assignment,constraints,neighbors):
+    if not assignment:return True
+    for c in constraints.keys():
+        for var2 in neighbors[var]:
+            if var2 in assignment and not constraints[c](var,value,var2,assignment[var2]):
+                return False
+    return True        
+
+def Australia():#Return a CSP instance of the Map Coloring of Australia.
+    WA,Q,T,V,SA,NT,NSW='WA','Q','T','V','SA','NT','NSW'
+    values=['RED','GREEN','BLUE']
+    vars=[WA,Q,T,V,SA,NT,NSW]
+    domains={SA:values[:],WA:values[:],NT:values[:],Q:values[:],NSW:values[:],V:values[:],T:values[:]}
+    neighbors={WA:[SA,NT],Q:[SA,NT,NSW],T:[],V:[SA,NSW],SA:[WA,NT,Q,NSW,V],NT:[SA,WA,Q],NSW:[SA,Q,V]}
+    constraints={SA:constraint,WA:constraint,NT:constraint,Q:constraint,NSW:constraint,V:constraint,T:constraint}
+    return csp(vars,domains,neighbors,constraints)
+
+def constraint(A,a,B,b): #Two neighboring variables must differ in value.
+    return a!=b
+
+def run():
+    print BACKTRACKING_SEARCH(Australia())
+
+#RESULTADO:
+#>>> run()
+#{'WA': 'RED', 'Q': 'RED', 'T': 'RED', 'V': 'RED', 'SA': 'GREEN', 'NT': 'BLUE', 'NSW': 'BLUE'}
+#>>>
+#http://homepages.ius.edu/rwisman/C463/html/f5-8.txt
