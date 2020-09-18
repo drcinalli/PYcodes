@@ -1,0 +1,53 @@
+\begin{thebibliography}{1}
+
+\bibitem{Berg:2008:CGA:1370949}
+Mark~de Berg, Otfried Cheong, Marc~van Kreveld, and Mark Overmars.
+\newblock {\em Computational Geometry: Algorithms and Applications}.
+\newblock Springer-Verlag TELOS, Santa Clara, CA, USA, 3rd ed. edition, 2008.
+
+\bibitem{back-1996:evolutionary-algorithms}
+Thomas B\"{a}ck.
+\newblock {\em Evolutionary algorithms in theory and practice: Evolution
+  Strategies, Evolutionary Programming, Genetic Algorithms}.
+\newblock Oxford University Press, New York, 1996.
+
+\bibitem{emmerich2005emo}
+Michael Emmerich, Nicola Beume, and Boris Naujoks.
+\newblock An emo algorithm using the hypervolume measure as selection
+  criterion.
+\newblock In {\em Evolutionary Multi-Criterion Optimization}, pages 62--76.
+  Springer, 2005.
+
+\bibitem{zitzler1999multiobjective}
+Eckart Zitzler and Lothar Thiele.
+\newblock Multiobjective evolutionary algorithms: a comparative case study and
+  the strength pareto approach.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 3(4):257--271,
+  1999.
+
+\bibitem{Padhraic}
+Padhraic Smyth.
+\newblock The em algorithm for gaussian mixtures.
+\newblock
+  \url{http://www.ics.uci.edu/~smyth/courses/cs274/background_notes.html},
+  2014.
+\newblock [Online; accessed 11-Oct-2014].
+
+\bibitem{barber2012bayesian}
+David Barber.
+\newblock {\em Bayesian reasoning and machine learning}.
+\newblock Cambridge University Press, 2012.
+
+\bibitem{dempster1977maximum}
+Arthur~P Dempster, Nan~M Laird, and Donald~B Rubin.
+\newblock Maximum likelihood from incomplete data via the em algorithm.
+\newblock {\em Journal of the Royal Statistical Society. Series B
+  (Methodological)}, pages 1--38, 1977.
+
+\bibitem{deb2002fast}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and TAMT Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: Nsga-ii.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 6(2):182--197,
+  2002.
+
+\end{thebibliography}

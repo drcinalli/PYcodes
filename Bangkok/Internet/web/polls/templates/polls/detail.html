@@ -1,0 +1,19 @@
+<h1>{{ exp.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<!--<ul>-->
+<!--{% for gen_block in exp.generation_set.all %}-->
+    <!--<li>{{ gen_block.block }}</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+
+
+<form action="{% url 'polls:vote' exp.id %}" method="post">
+{% csrf_token %}
+{% for gen in exp.generation_set.all %}
+    <input type="radio" name="gen" id="gen{{ forloop.counter }}" value="{{ gen.id }}" />
+    <label for="gen{{ forloop.counter }}">{{ gen.block }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>

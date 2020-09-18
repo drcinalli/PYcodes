@@ -1,0 +1,173 @@
+# Tic Tac Toe
+
+import operator, sys, random, time
+
+jX = 'x'
+jO = 'o'
+
+def desenhaTabuleiro(tabu):
+
+    print('    |     |')
+    print(' ' + tabu[7] + '  |  ' + tabu[8] + '  |  ' + tabu[9])
+    print('    |     |')
+    print('---------------')
+    print('    |     |')
+    print(' ' + tabu[4] + '  |  ' + tabu[5] + '  |  ' + tabu[6])
+    print('    |     |')
+    print('---------------')
+    print('    |     |')
+    print(' ' + tabu[1] + '  |  ' + tabu[2] + '  |  ' + tabu[3])
+    print('    |     |')
+    
+def desenhaTabuleiroVazio(tabu):
+
+    print('    |     |')
+    print(' ' + '7' + '  |  ' + '8' + '  |  ' +  '9')
+    print('    |     |')
+    print('---------------')
+    print('    |     |')
+    print(' ' +  '4' + '  |  ' + '5' + '  |  ' + '6')
+    print('    |     |')
+    print('---------------')
+    print('    |     |')
+    print(' ' + '1' + '  |  ' + '2' + '  |  ' + '3')
+    print('    |     |')
+
+    
+def humanoEscolheLetra():
+    letra = ''
+
+    while not (letra.upper() == 'X' or letra.upper() == 'O'):
+        letra = raw_input("Por Favor, escolha X ou O?")
+        #print letra.upper()
+
+    # o primeiro na ordem eh o humano, o segundo sera o computador.
+    if letra.upper() == 'X':
+        return ['X', 'O']
+    else:
+        return ['O', 'X']
+
+def primeiraJogada():
+    
+    if random.randint(0, 1) == 0:
+        return 'computador'
+    else:
+        return 'humano'
+
+
+def Move(tabu, letra, move):
+    tabu[move] = letra
+
+def Campeao(tabu, letra):
+
+	# todas as combinacoes
+    return ((tabu[7] == letra and tabu[8] == letra and tabu[9] == letra) or 
+    (tabu[4] == letra and tabu[5] == letra and tabu[6] == letra) or 
+    (tabu[1] == letra and tabu[2] == letra and tabu[3] == letra) or 
+    (tabu[7] == letra and tabu[4] == letra and tabu[1] == letra) or 
+    (tabu[8] == letra and tabu[5] == letra and tabu[2] == letra) or 
+    (tabu[9] == letra and tabu[6] == letra and tabu[3] == letra) or 
+    (tabu[7] == letra and tabu[5] == letra and tabu[3] == letra) or 
+    (tabu[9] == letra and tabu[5] == letra and tabu[1] == letra)) 
+        
+    
+def espacoVazio(tabuleiro, move):
+    return tabuleiro[move] == ' '
+
+def TabuleiroCheio(tabu):
+    for i in range(1, 10):
+        if espacoVazio(tabu, i):
+            return False
+    return True
+
+
+def humanoMove(tabuleiro):
+    
+    move = ' '
+    while move not in '1 2 3 4 5 6 7 8 9'.split() or not espacoVazio(tabuleiro, int(move)):
+		move = raw_input("Por Favor, escolha uma casa?")
+        #move = input()
+    return int(move)
+    
+    
+def computadorMove(tabuleiro, computador):
+	oponente = { jO : jX, jX : jO }
+	
+	def final(campeao):
+		if Campeao(tabuleiro,computador):
+			return +1
+		if Campeao(tabuleiro, winner == None:
+			return 0
+		return -1
+		
+			
+	
+        
+if __name__ == "__main__":
+    tabuleiro = [' '] * 10
+    humano, computador = humanoEscolheLetra()
+    #print humano
+    vez = primeiraJogada()
+ 
+    desenhaTabuleiroVazio(tabuleiro)    
+    
+    
+    altura = 1
+    
+    while True:
+    
+    	print('Jogador: ' + vez)
+    	
+    	#humano
+    	if vez == 'humano':
+    		
+    		#faz o movimento
+    		move = humanoMove(tabuleiro)
+    		Move(tabuleiro, humano, move)
+    		
+    		desenhaTabuleiro(tabuleiro)
+    		
+    		#verifica se jogo acabou
+    		if Campeao(tabuleiro, humano):
+    			#desenhaTabuleiro(tabuleiro)
+    			print "Parabens! voce venceu."
+    			break
+    		else:
+    			if TabuleiroCheio(tabuleiro):
+    				#empate
+    				print "Empate!"
+    				break
+    			else:
+    				#muda a ordem
+    				vez = "computador"
+    				    		
+    	#computador
+    	else:
+    		
+    		#faz o movimento
+    		move = computadorMove(tabuleiro, computador)
+    		Move(tabuleiro, computador, move)
+    		
+    		desenhaTabuleiro(tabuleiro)
+    		
+    		#verifica se jogo acabou
+    		if Campeao(tabuleiro, computador):
+    			#desenhaTabuleiro(tabuleiro)
+    			print "Perdeu! eu venci."
+    			break
+    		else:
+    			if TabuleiroCheio(tabuleiro):
+    				#empate
+    				print "Empate!"
+    				break
+    			else:
+    				#muda a ordem
+    				vez = "humano"
+    				    		
+    		
+    		
+					    
+	
+    
+   
+       

@@ -1,0 +1,9 @@
+<h1>{{ exp.name }}</h1>
+
+<ul>
+{% for gen in exp.generation_set.all %}
+    <li>{{ gen.block }} -- {{ gen.block }} block{{ gen.block|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' exp.id %}">Vote again?</a>
