@@ -1,5 +1,5 @@
 Django==1.7
-PyYAML==3.11
+PyYAML==5.4
 South==1.0.1
 awsebcli==3.0.9
 cement==2.4.0
